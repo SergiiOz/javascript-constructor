@@ -1,8 +1,14 @@
 import image from './assets/images/icons-coding.png';
-import { Block } from './classes/blocks';
+import {
+  TitleBlock,
+  ImageBlock,
+  TextBlock,
+  TextColumnsBlock,
+} from './classes/blocks';
 
+//=== model ===
 export const model = [
-  new Block('title', 'Constructor of sites', {
+  new TitleBlock('Constructor of sites', {
     tag: 'h1',
     styles:
       'background-image: linear-gradient(to bottom right, red, yellow); color: #fff; text-align: center',
@@ -17,7 +23,7 @@ export const model = [
   //   },
   // },
 
-  new Block('image', image, {
+  new ImageBlock(image, {
     tag: 'img',
     alt: 'picture',
     imageStyles: 'width: 64px; height: auto',
@@ -34,13 +40,9 @@ export const model = [
   //   },
   // },
 
-  new Block(
-    'text',
-    'Lorem ipsum dolor sit, amet consectetur adipisicing elit.',
-    {
-      styles: 'background: darkblue; color: yellow;',
-    }
-  ),
+  new TextBlock('Lorem ipsum dolor sit, amet consectetur adipisicing elit.', {
+    styles: 'background: darkblue; color: yellow;',
+  }),
   // {
   //   type: 'text',
   //   value: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit.',
@@ -49,8 +51,7 @@ export const model = [
   //   },
   // },
 
-  new Block(
-    'textColumns',
+  new TextColumnsBlock(
     [
       'Apps wrote on pure javaScript',
       'Creating app, test',
