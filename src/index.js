@@ -1,20 +1,33 @@
 import { model } from './model';
+import { Site } from './classes/site';
+import { Sidebar } from './classes/sidebar';
 // import { title, text, textColumns } from './templates';
 // import { templates } from './templates';
-
 import './styles/main.css';
 
-const site = document.querySelector('#site');
+const site = new Site('#site');
+
+const updateCallback = (newBlock) => {
+  model.push(newBlock);
+  site.render(model);
+};
+
+new Sidebar('#panel', updateCallback);
+
+site.render(model);
+
+// const site = document.querySelector('#site');
 // console.log(templates['textColumns']);
 
-model.forEach((block) => {
-  console.log(block);
-  site.insertAdjacentHTML('beforeend', block.toHTML());
+//== Second refactoring ==
+// model.forEach((block) => {
+//   console.log(block);
+//   site.insertAdjacentHTML('beforeend', block.toHTML());
 
-  // refactoring was above
-  // const generate = templates[block.type];
-  // if (generate) {
-  //   const html = generate(block);
-  //   site.insertAdjacentHTML('beforeend', html);
-  // }
-});
+//=== First refactoring was above ==
+// const generate = templates[block.type];
+// if (generate) {
+//   const html = generate(block);
+//   site.insertAdjacentHTML('beforeend', html);
+// }
+// });

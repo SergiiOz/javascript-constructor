@@ -21,8 +21,10 @@ export class TitleBlock extends Block {
 
   toHTML() {
     // console.log('parametrs of block', block);
-    const tag = this.options.tag;
-    const styles = this.options.styles;
+    // const tag = this.options.tag;
+    // const styles = this.options.styles;
+    //with destructuring
+    const { tag = 'h1', styles } = this.options;
     //we pass in function 'row'  two paramentrs content and styles
     return row(colSm(`<${tag}>${this.value}</${tag}>`), styles);
   }
